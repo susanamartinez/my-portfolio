@@ -1,0 +1,123 @@
+.card {
+  background: var(--bg-card);
+  border: 1px solid #3a3a3a;
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #555555;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.image {
+  position: relative;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--card-color) 8%, var(--bg));
+}
+
+.imageBg {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      color-mix(in srgb, var(--card-color) 10%, transparent) 28px,
+      color-mix(in srgb, var(--card-color) 10%, transparent) 29px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 28px,
+      color-mix(in srgb, var(--card-color) 10%, transparent) 28px,
+      color-mix(in srgb, var(--card-color) 10%, transparent) 29px
+    );
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.emoji {
+  position: relative;
+  font-size: 52px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px color-mix(in srgb, var(--card-color) 40%, transparent));
+}
+
+.body {
+  padding: 22px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-h);
+  letter-spacing: -0.3px;
+}
+
+.desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text);
+  flex: 1;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #0086ff;
+  background: rgba(0, 134, 255, 0.12);
+  border: 1px solid rgba(0, 134, 255, 0.3);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.link {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0086ff;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.link:hover {
+  opacity: 0.7;
+}

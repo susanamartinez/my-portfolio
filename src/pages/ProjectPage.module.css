@@ -1,0 +1,133 @@
+.page {
+  min-height: 100svh;
+  padding: 40px 24px 100px;
+}
+
+.inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  transition: color 0.2s, border-color 0.2s;
+  align-self: flex-start;
+}
+
+.back:hover {
+  color: var(--text-h);
+  border-color: color-mix(in srgb, var(--card-color) 50%, transparent);
+}
+
+.hero {
+  width: 100%;
+}
+
+.imagePlaceholder {
+  position: relative;
+  height: 320px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--card-color) 8%, var(--bg));
+}
+
+.imageBg {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      color-mix(in srgb, var(--card-color) 10%, transparent) 28px,
+      color-mix(in srgb, var(--card-color) 10%, transparent) 29px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 28px,
+      color-mix(in srgb, var(--card-color) 10%, transparent) 28px,
+      color-mix(in srgb, var(--card-color) 10%, transparent) 29px
+    );
+}
+
+.imagePlaceholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.emoji {
+  position: relative;
+  font-size: 80px;
+  line-height: 1;
+  filter: drop-shadow(0 8px 24px color-mix(in srgb, var(--card-color) 40%, transparent));
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #0086ff;
+  background: rgba(0, 134, 255, 0.12);
+  border: 1px solid rgba(0, 134, 255, 0.3);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.title {
+  font-size: clamp(32px, 6vw, 52px);
+  letter-spacing: -1px;
+}
+
+.lead {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--text-h);
+}
+
+.body {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 60svh;
+  text-align: center;
+}
