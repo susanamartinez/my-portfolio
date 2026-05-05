@@ -5,7 +5,7 @@ import usageBillingImage from '../assets/Usage and Billing.png'
 const projects = [
   {
     slug: 'dashboard-ui',
-    title: 'Design System',
+    title: 'Dashboard UI',
     image: image2,
     description:
       'A data-rich admin dashboard with real-time charts, filterable tables, and a dark/light theme toggle.',
@@ -17,7 +17,7 @@ const projects = [
   },
   {
     slug: 'e-commerce-store',
-    title: 'RBAC System',
+    title: 'E-Commerce Store',
     image: rbacImage,
     description:
       'Full-featured online shop with cart, product pages, and Stripe checkout integration.',
@@ -29,7 +29,7 @@ const projects = [
   },
   {
     slug: 'blog-platform',
-    title: 'Usage and Billing',
+    title: 'Blog Platform',
     image: usageBillingImage,
     description:
       'Markdown-powered blog with syntax highlighting, tag filtering, and an RSS feed.',
@@ -41,7 +41,7 @@ const projects = [
   },
   {
     slug: 'mobile-app',
-    title: 'Identity Resolution',
+    title: 'Mobile App UI',
     description:
       'A cross-platform mobile app design with onboarding flow, home feed, and user profile screens.',
     longDescription:
@@ -52,7 +52,7 @@ const projects = [
   },
   {
     slug: 'design-system',
-    title: 'AI Segment Builder',
+    title: 'Design System',
     description:
       'A scalable component library with tokens, documentation, and Storybook integration.',
     longDescription:
@@ -63,7 +63,7 @@ const projects = [
   },
   {
     slug: 'landing-page',
-    title: 'Measurement Tools',
+    title: 'SaaS Landing Page',
     description:
       'High-converting landing page for a SaaS product with animated sections and A/B tested CTAs.',
     longDescription:
