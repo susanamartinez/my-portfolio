@@ -1,16 +1,9 @@
 import styles from './Hero.module.css'
-import useRevealOnScroll from '../hooks/useRevealOnScroll'
 
 export default function Hero() {
-  const { elementRef, isVisible } = useRevealOnScroll({ threshold: 0.15 })
-
   return (
-    <section
-      id="home"
-      ref={elementRef}
-      className={`${styles.hero} ${isVisible ? styles.isVisible : ''}`}
-    >
-      <h1 className={styles.heading}>
+    <section id="home" className={styles.hero}>
+<h1 className={styles.heading}>
         Hi, I'm <span className={styles.accent}>Susana</span>
         <br />
         Lead UX Designer

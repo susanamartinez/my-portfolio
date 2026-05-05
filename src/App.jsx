@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import About from './components/About'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 import ProjectPage from './pages/ProjectPage'
@@ -11,7 +10,6 @@ function Home() {
   return (
     <main>
       <Hero />
-      <About />
       <Portfolio />
       <Contact />
     </main>

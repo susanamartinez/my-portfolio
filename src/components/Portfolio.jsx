@@ -1,17 +1,10 @@
 import PortfolioCard from './PortfolioCard'
 import styles from './Portfolio.module.css'
 import projects from '../data/projects'
-import useRevealOnScroll from '../hooks/useRevealOnScroll'
 
 export default function Portfolio() {
-  const { elementRef, isVisible } = useRevealOnScroll({ threshold: 0.12 })
-
   return (
-    <section
-      id="work"
-      ref={elementRef}
-      className={`${styles.section} ${isVisible ? styles.isVisible : ''}`}
-    >
+    <section id="work" className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.header}>
           <p className={styles.label}>Portfolio</p>
@@ -21,8 +14,8 @@ export default function Portfolio() {
           </p>
         </div>
         <div className={styles.grid}>
-          {projects.map((p, index) => (
-            <PortfolioCard key={p.slug} delay={index * 60} {...p} />
+          {projects.map((p) => (
+            <PortfolioCard key={p.slug} {...p} />
           ))}
         </div>
       </div>
