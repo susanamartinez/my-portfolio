@@ -1,11 +1,45 @@
+import { useEffect, useState } from 'react'
 import styles from './Navbar.module.css'
 
-const links = ['Home', 'Work', 'Contact']
+const links = [
+  { label: 'Home', id: 'home' },
+  { label: 'Work', id: 'work' },
+  { label: 'About Me', id: 'about' },
+  { label: 'Contact', id: 'contact' },
+]
 
 export default function Navbar() {
+  const [activeSection, setActiveSection] = useState('home')
+
+  useEffect(() => {
+    const sections = ['home', 'work', 'about', 'contact']
+      .map((id) => document.getElementById(id))
+      .filter(Boolean)
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const inView = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+
+        if (inView?.target.id) {
+          setActiveSection(inView.target.id)
+        }
+      },
+      {
+        threshold: [0.25, 0.5, 0.75],
+        rootMargin: '-30% 0px -50% 0px',
+      },
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [])
+
   function handleNav(e, id) {
     e.preventDefault()
-    const el = document.getElementById(id.toLowerCase())
+    setActiveSection(id)
+    const el = document.getElementById(id)
     el?.scrollIntoView({ behavior: 'smooth' })
   }
 
@@ -13,26 +47,18 @@ export default function Navbar() {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <ul className={styles.links}>
-          {links.map((l) => (
-            <li key={l}>
-              <a href={`#${l.toLowerCase()}`} onClick={(e) => handleNav(e, l)}>
-                {l}
+          {links.map((link) => (
+            <li key={link.id}>
+              <a
+                href={`#${link.id}`}
+                className={activeSection === link.id ? styles.activeLink : ''}
+                onClick={(e) => handleNav(e, link.id)}
+              >
+                {link.label}
               </a>
             </li>
           ))}
         </ul>
-        <div className={styles.ctaGroup}>
-          <a href="/Susana_Martinez_CV.pdf" className={styles.ctaOutline} download="Susana_Martinez_CV.pdf">
-            Download CV
-          </a>
-          <a
-            href="#contact"
-            className={styles.cta}
-            onClick={(e) => handleNav(e, 'Contact')}
-          >
-            Hire me
-          </a>
-        </div>
       </nav>
     </header>
   )

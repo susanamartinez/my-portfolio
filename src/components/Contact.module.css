@@ -1,6 +1,14 @@
 .section {
   padding: 80px 24px 120px;
   border-top: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.isVisible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .inner {
@@ -15,6 +23,14 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease 0.06s, transform 0.45s ease 0.06s;
+}
+
+.isVisible .header {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .label {
@@ -39,6 +55,14 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease 0.12s, transform 0.45s ease 0.12s;
+}
+
+.isVisible .form {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .row {
@@ -84,6 +108,10 @@
 }
 
 .btn {
+  height: var(--button-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   align-self: flex-start;
   font-size: 15px;
   font-weight: 600;
@@ -91,14 +119,42 @@
   color: #fff;
   background: #0086ff;
   border: none;
-  padding: 13px 32px;
+  padding: 0 32px;
   border-radius: 10px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.2s ease;
 }
 
 .btn:hover {
   background: #0070d6;
+  transform: translateY(-1px);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btnOutline {
+  height: var(--button-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #424242;
+  background: transparent;
+  border: 1.5px solid #424242;
+  padding: 0 32px;
+  border-radius: 10px;
+  transition: background 0.2s, transform 0.2s ease;
+}
+
+.btnOutline:hover {
+  background: rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
 }
 
 .success {
@@ -138,5 +194,27 @@
   .btn {
     align-self: stretch;
     text-align: center;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .btn,
+  .btnOutline {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section,
+  .header,
+  .form,
+  .btn,
+  .btnOutline {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
