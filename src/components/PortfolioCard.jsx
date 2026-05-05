@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom'
 import styles from './PortfolioCard.module.css'
+import useRevealOnScroll from '../hooks/useRevealOnScroll'
 
-export default function PortfolioCard({ slug, title, description, tags, color, emoji, image }) {
+export default function PortfolioCard({ slug, title, description, tags, color, emoji, image, delay = 0 }) {
+  const { elementRef, isVisible } = useRevealOnScroll({ threshold: 0.22 })
+
   return (
-    <Link to={`/project/${slug}`} className={styles.card} style={{ '--card-color': color }}>
+    <Link
+      to={`/project/${slug}`}
+      ref={elementRef}
+      className={`${styles.card} ${isVisible ? styles.isVisible : ''}`}
+      style={{ '--card-color': color, '--reveal-delay': `${delay}ms` }}
+    >
       <div className={styles.image}>
         {image
           ? <img src={image} alt={title} />

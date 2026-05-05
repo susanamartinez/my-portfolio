@@ -15,11 +15,16 @@
   --shadow-card: 0 4px 24px rgba(0, 134, 255, 0.08);
   --sans: 'Inter', system-ui, 'Segoe UI', sans-serif;
   --radius: 14px;
+  --button-height: 46px;
 
   font: 16px/1.6 var(--sans);
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -35,6 +40,10 @@ body {
 
 main {
   flex: 1;
+}
+
+section {
+  scroll-margin-top: 84px;
 }
 
 h1, h2, h3 {

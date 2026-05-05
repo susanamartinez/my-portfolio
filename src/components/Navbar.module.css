@@ -14,7 +14,7 @@
   height: 64px;
   display: flex;
   align-items: center;
-  gap: 32px;
+  justify-content: center;
 }
 
 .logo {
@@ -37,7 +37,7 @@
 
 .links {
   list-style: none;
-  margin: 0 auto 0 0;
+  margin: 0;
   padding: 0;
   display: flex;
   gap: 8px;
@@ -54,42 +54,12 @@
 
 .links a:hover {
   color: var(--text-h);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 134, 255, 0.08);
 }
 
-.ctaGroup {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.ctaOutline {
-  font-size: 14px;
-  font-weight: 600;
-  color: #424242;
-  background: transparent;
-  border: 1.5px solid #424242;
-  padding: 6.5px 18px;
-  border-radius: 8px;
-  transition: background 0.2s;
-}
-
-.ctaOutline:hover {
-  background: rgba(0, 0, 0, 0.06);
-}
-
-.cta {
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-  background: #0086ff;
-  padding: 8px 18px;
-  border-radius: 8px;
-  transition: background 0.2s;
-}
-
-.cta:hover {
-  background: #0070d6;
+.activeLink {
+  color: var(--text-h) !important;
+  background: rgba(0, 134, 255, 0.12);
 }
 
 @media (max-width: 600px) {

@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import styles from './Contact.module.css'
+import useRevealOnScroll from '../hooks/useRevealOnScroll'
 
 export default function Contact() {
   const [sent, setSent] = useState(false)
+  const { elementRef, isVisible } = useRevealOnScroll({ threshold: 0.12 })
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -10,7 +12,11 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className={styles.section}>
+    <section
+      id="contact"
+      ref={elementRef}
+      className={`${styles.section} ${isVisible ? styles.isVisible : ''}`}
+    >
       <div className={styles.inner}>
         <div className={styles.header}>
           <p className={styles.label}>Contact</p>
@@ -41,9 +47,14 @@ export default function Contact() {
               <span>Message</span>
               <textarea rows={5} placeholder="Tell me about your project..." required />
             </label>
-            <button type="submit" className={styles.btn}>
-              Send Message
-            </button>
+            <div className={styles.actions}>
+              <button type="submit" className={styles.btn}>
+                Send Message
+              </button>
+              <a href="/Susana_Martinez_CV.pdf" className={styles.btnOutline} download="Susana_Martinez_CV.pdf">
+                Download CV
+              </a>
+            </div>
           </form>
         )}
       </div>
